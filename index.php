@@ -15,7 +15,10 @@ if (!is_null($events['events'])) {
         if ($event['type'] == 'message') { 
             
             // Get replyToken 
-            $replyToken = $event['replyToken']; 
+            $replyToken = $event['replyToken'];
+            // Sticker
+            $packageId = 1;
+            $stickerId = 410; 
 
             switch($event['message']['type']) { 
                 case 'text': 
@@ -25,6 +28,9 @@ if (!is_null($events['events'])) {
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
                     $textMessageBuilder = new TextMessageBuilder($respMessage); 
                     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+                    $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId);; 
+                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+
                     break;
 
                 case 'image':
