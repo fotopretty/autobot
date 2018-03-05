@@ -2,6 +2,7 @@
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient; 
 use \LINE\LINEBot; 
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder; 
+use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 $channel_token = 'rQLpz44d7AEZHpO4SToWXv1xqs9Di2K29fxheb/QjZtlpbjK8aAnXFFDLkpBwy6GIK29x4qE8zQ0WEwsJZ3F2ulHkSeMrlrPttEW5cX1/WOatQhcqNx3E3IrOQS73o4RSneskAOJK0UvK9O83lROowdB04t89/1O/w1cDnyilFU='; 
 $channel_secret = '41a728cbbf76503bc4611b84574fcaec'; 
 // Get message from Line API 
