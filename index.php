@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
             $replyToken = $event['replyToken'];
             // Sticker
             $packageId = 1;
-            $stickerId = 410; 
+            $stickerId = 1; 
 
             switch($event['message']['type']) { 
                 case 'text': 
