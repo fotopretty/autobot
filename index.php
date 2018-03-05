@@ -1,1 +1,1 @@
-<?php echo 'sawadee';?>
+<?php echo 'sawadee มองอะไรจ๊ะ';?>
