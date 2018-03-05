@@ -25,7 +25,7 @@ if (!is_null($events['events'])) {
             switch($event['message']['type']) { 
                 case 'text': 
                     // Reply message 
-                    $respMessage = 'PMT เจ้าค่ะ ออเจ้ามีเรื่องกะไรฤฤฤฤฤ '. $event['message']['text']; 
+                    $respMessage = 'PMT เจ้าค่ะ ออเจ้ามีเรื่องกะไรฤฤฤฤฤ '. $event['message']['text']. $event['source']['userId']; 
                     $httpClient = new CurlHTTPClient($channel_token); 
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
                     $textMessageBuilder = new TextMessageBuilder($respMessage); 
