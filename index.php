@@ -1,1 +1,4 @@
-<?php echo 'sawadee มองอะไรจ๊ะ';?>
+<?php echo 'sawadee มองอะไรจ๊ะ';
+error_log($message);
+
+?>
