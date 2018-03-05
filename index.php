@@ -3,6 +3,7 @@ use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot; 
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder; 
 use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
+
 $channel_token = 'rQLpz44d7AEZHpO4SToWXv1xqs9Di2K29fxheb/QjZtlpbjK8aAnXFFDLkpBwy6GIK29x4qE8zQ0WEwsJZ3F2ulHkSeMrlrPttEW5cX1/WOatQhcqNx3E3IrOQS73o4RSneskAOJK0UvK9O83lROowdB04t89/1O/w1cDnyilFU='; 
 $channel_secret = '41a728cbbf76503bc4611b84574fcaec'; 
 // Get message from Line API 
@@ -24,11 +25,11 @@ if (!is_null($events['events'])) {
             switch($event['message']['type']) { 
                 case 'text': 
                     // Reply message 
-                    $respMessage = 'PMT สวัสดีค่ะ ทดสอบระบบ '. $event['message']['text']; 
+                    $respMessage = 'PMT เจ้าค่ะ ออเจ้ามีเรื่องกะไรฤฤฤฤฤ '. $event['message']['text']; 
                     $httpClient = new CurlHTTPClient($channel_token); 
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
-                    //$textMessageBuilder = new TextMessageBuilder($respMessage); 
-                    //$response = $bot->replyMessage($replyToken, $textMessageBuilder);
+                    $textMessageBuilder = new TextMessageBuilder($respMessage); 
+                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
                     $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId); 
                     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 
