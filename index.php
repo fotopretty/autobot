@@ -39,8 +39,8 @@ if (!is_null($events['events'])) {
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
                     $textMessageBuilder = new TextMessageBuilder($respMessage); 
                     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-                    $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId); 
-                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+//                    $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId); 
+//                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 
                     break;
 
