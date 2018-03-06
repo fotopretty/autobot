@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
             $packageId = 1;
             $stickerId = 1;
             
-            $wording1 = array("ดีจะ"=>"ดีเจ้าค่ะแม่หญิง", "สวัสดี"=>"จ๊ะสวัสดีค่ะ");
+            $wording1 = array("ดีจะ"=>"ดีเจ้าค่ะแม่หญิง", "สวัสดี"=>"จ๊ะสวัสดีค่ะ","ตื่น"=>"ตื่นแล้วเจ้าค่ะ ^ ^");
 
             switch($event['message']['type']) { 
                 case 'text': 
