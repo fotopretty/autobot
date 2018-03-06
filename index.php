@@ -18,6 +18,7 @@ if (!is_null($events['events'])) {
             
             // Get replyToken 
             $replyToken = $event['replyToken'];
+            $textMsg = $event['message']['text'];
             // Sticker
             $packageId = 1;
             $stickerId = 1; 
@@ -25,7 +26,7 @@ if (!is_null($events['events'])) {
             switch($event['message']['type']) { 
                 case 'text': 
                     // Reply message 
-                    if ($event['message']['text'] == 'ดีจะ'){
+                    if ($textMsg == 'ดีจะ'){
                         $respMessage = 'PMT สวัสดีเจ้าค่ะ ออเจ้า สนใจงานพริ้ตต้ เอ็มซี สอบถามได้นะค่ะ หรือจะโพสงาน โพสได้เจ้้าค่ะแม่หญิง... '; 
                     } else {
                         $respMessage = 'PMT อืม เจ้าค่ะ.. '; 
@@ -40,16 +41,16 @@ if (!is_null($events['events'])) {
 
                     break;
 
-                case 'image':
+/*                 case 'image':
                     $messageID = $event['message']['id'];
                     $respMessage = 'Image ID '.$messageID;
-                    break;
+                    break; */
 
-                case 'sticker':
+/*                 case 'sticker':
                     $messageID = $event['message']['packageId'];
                     $respMessage='Sticker ID '. $messageID;
                     break;
-
+ */
                 default:
                     $respMessage='send image only';
                     break; 
