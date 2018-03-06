@@ -25,7 +25,7 @@ if (!is_null($events['events'])) {
             switch($event['message']['type']) { 
                 case 'text': 
                     // Reply message 
-                    $respMessage = 'PMT เจ้าค่ะ ออเจ้ามีเรื่องกะไรฤฤฤฤฤ '; 
+                    $respMessage = 'PMT สวัสดีเจ้าค่ะ ออเจ้า สนใจงานพริ้ตต้ เอ็มซี สอบถามได้นะค่ะ หรือจะโพสงาน โพสได้เจ้้าค่ะแม่หญิง... '; 
                     $httpClient = new CurlHTTPClient($channel_token); 
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
                     $textMessageBuilder = new TextMessageBuilder($respMessage); 
