@@ -55,7 +55,7 @@ if (!is_null($events['events'])) {
                     break;
  */
                 default:
-                    $respMessage='send image only';
+                    $respMessage='เจ้าค่ะ ^ ^';
                     break; 
             }
             
