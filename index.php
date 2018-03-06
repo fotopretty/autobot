@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
                 case 'text': 
                     // Reply message 
                     foreach ($wording1 as $key => $value){
-                        if ($wordking1 == $textMsg){
+                        if ($key == $textMsg){
                             $respMessage = $value; 
                         } 
                     }
