@@ -21,16 +21,19 @@ if (!is_null($events['events'])) {
             $textMsg = $event['message']['text'];
             // Sticker
             $packageId = 1;
-            $stickerId = 1; 
+            $stickerId = 1;
+            
+            $wording1 = array("ดีจะ"=>"ดีเจ้าค่ะแม่หญิง", "สวัสดี"=>"จ๊ะสวัสดีค่ะ");
 
             switch($event['message']['type']) { 
                 case 'text': 
                     // Reply message 
-                    if ($textMsg == 'ดีจะ'){
-                        $respMessage = 'PMT สวัสดีเจ้าค่ะ ออเจ้า สนใจงานพริ้ตต้ เอ็มซี สอบถามได้นะค่ะ หรือจะโพสงาน โพสได้เจ้้าค่ะแม่หญิง... '; 
-                    } else {
-                        $respMessage = 'PMT อืม เจ้าค่ะ.. '; 
+                    foreach ($wording1 as $key => $value){
+                        if ($wordking1 == $textMsg){
+                            $respMessage = $value; 
+                        } 
                     }
+
 
                     $httpClient = new CurlHTTPClient($channel_token); 
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
