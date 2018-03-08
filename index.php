@@ -11,9 +11,9 @@ $password = "canon50d";
 $db = "sangudom_pmt";
 //header("HTTP/1.1 200 OK");
 
-mysql_connect($host, $username, $password) or die('dead');
+/* mysql_connect($host, $username, $password) or die('dead');
 mysql_select_db($db) or die('dead');
-mysql_query('set name utf8');
+mysql_query('set name utf8'); */
 
 
 $channel_token = 'rQLpz44d7AEZHpO4SToWXv1xqs9Di2K29fxheb/QjZtlpbjK8aAnXFFDLkpBwy6GIK29x4qE8zQ0WEwsJZ3F2ulHkSeMrlrPttEW5cX1/WOatQhcqNx3E3IrOQS73o4RSneskAOJK0UvK9O83lROowdB04t89/1O/w1cDnyilFU='; 
