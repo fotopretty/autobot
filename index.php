@@ -8,7 +8,7 @@ use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 $host = "43.229.77.78";
 $username = "araiwah_pmt";
 $password = "canon50d";
-mysql_connect($host, $username, $password);
+$objConnect  = mysql_connect($host, $username, $password);
 $objDB = mysql_select_db("araiwah_pmt");
 
 $channel_token = 'rQLpz44d7AEZHpO4SToWXv1xqs9Di2K29fxheb/QjZtlpbjK8aAnXFFDLkpBwy6GIK29x4qE8zQ0WEwsJZ3F2ulHkSeMrlrPttEW5cX1/WOatQhcqNx3E3IrOQS73o4RSneskAOJK0UvK9O83lROowdB04t89/1O/w1cDnyilFU='; 
@@ -102,6 +102,7 @@ if (!is_null($events['events'])) {
             if(!$objQuery){
                 echo "Error save";
             }
+            mysql_close($objConnect);
 
          } 
     } 
