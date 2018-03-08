@@ -11,6 +11,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true); 
 
 if (!is_null($events['events'])) { 
+
     // Loop through each event 
     foreach ($events['events'] as $event) { 
         // Line API send a lot of event type, we interested in message only. 
@@ -20,6 +21,10 @@ if (!is_null($events['events'])) {
             $replyToken = $event['replyToken'];
             $userId = $event['source']['userId'];
             $textMsg = $event['message']['text'];
+            $userProfile = $bot->getProfile($userId);
+            $userData = $userProfile->getJSONDecodeBody();
+
+
             // Sticker
             $packageId = 1;
             $stickerId = 1;
@@ -32,7 +37,8 @@ if (!is_null($events['events'])) {
                     foreach ($wording1 as $key => $value){
                         if ($key == $textMsg){
                             $respMessage = $value;
-//                            $respMessage .= $userId; 
+//                            $respMessage .= $userId;
+                            $respMessage .= $userData['displayName'];
                         } 
                     }
 
