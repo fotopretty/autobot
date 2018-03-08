@@ -1,6 +1,7 @@
 <?php require_once('./vendor/autoload.php'); // Namespace 
-use \LINE\LINEBot\HTTPClient\CurlHTTPClient; 
 use \LINE\LINEBot; 
+use \LINE\LINEBot\HTTPClient;
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient; 
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder; 
 use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 
@@ -51,6 +52,11 @@ if (!is_null($events['events'])) {
                     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 //                    $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId); 
 //                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+                    if($response->isSucceeded()){
+                        echo 'Succeed';
+                        return;
+                    }
+                    $response = $bot->pushMessage($userId, $textMessageBuilder);
                     if($response->isSucceeded()){
                         echo 'Succeed';
                         return;
