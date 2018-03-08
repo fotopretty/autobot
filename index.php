@@ -49,13 +49,13 @@ if (!is_null($events['events'])) {
 //                   $httpClient = new CurlHTTPClient($channel_token); 
 //                    $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
                     $textMessageBuilder = new TextMessageBuilder($respMessage); 
-                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+//                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 //                    $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId); 
 //                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-                    if($response->isSucceeded()){
-                        echo 'Succeed';
-                        return;
-                    }
+//                    if($response->isSucceeded()){
+//                        echo 'Succeed';
+//                        return;
+//                    }
                     $response = $bot->pushMessage($userId, $textMessageBuilder);
                     if($response->isSucceeded()){
                         echo 'Succeed';
