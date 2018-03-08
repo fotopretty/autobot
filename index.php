@@ -5,9 +5,11 @@ use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder; 
 use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 
-$host = "araiwah.com";
+$host = "localhost";
 $username = "araiwah_pmt";
 $password = "canon50d";
+
+header("HTTP/1.1 200 OK");
 
 mysql_connect($host, $username, $password) or die("dead");
 mysql_select_db("araiwah_pmt") or die("dead");
@@ -97,6 +99,7 @@ if (!is_null($events['events'])) {
             $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
             $textMessageBuilder = new TextMessageBuilder($respMessage);
             $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+
             $strSQL = "INSERT INTO lineuser ";
             $strSQL .= "(userid,displayname,status) VALUES ";
             $strSQL .= "('".$userId."','".$userDisplayName."','ok')";
