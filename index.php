@@ -6,14 +6,15 @@ use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 
 $host = "localhost";
-$username = "araiwah_pmt";
+$username = "sangudom_pmt";
 $password = "canon50d";
-
+$db = "sangudom_pmt";
 //header("HTTP/1.1 200 OK");
 
-//mysql_connect($host, $username, $password) or die("dead");
-//mysql_select_db("araiwah_pmt") or die("dead");
-//mysql_query("SET NAMES utf8");
+mysql_connect($host, $username, $password) or die('dead');
+mysql_select_db($db) or die('dead');
+mysql_query('set name utf8');
+
 
 $channel_token = 'rQLpz44d7AEZHpO4SToWXv1xqs9Di2K29fxheb/QjZtlpbjK8aAnXFFDLkpBwy6GIK29x4qE8zQ0WEwsJZ3F2ulHkSeMrlrPttEW5cX1/WOatQhcqNx3E3IrOQS73o4RSneskAOJK0UvK9O83lROowdB04t89/1O/w1cDnyilFU='; 
 $channel_secret = '41a728cbbf76503bc4611b84574fcaec'; 
@@ -23,6 +24,17 @@ $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
 // Get message from Line API 
 $content = file_get_contents('php://input'); 
 $events = json_decode($content, true); 
+
+/* $strSQL = "INSERT INTO lineuser(lid,userid,displayname,function) VALUES('','y','y','y')";
+echo $strSQL;
+$objQuery = mysql_query($strSQL) or die ('insert error');
+if(!objQuery){
+    echo "Error";
+}    */     
+
+
+
+
 
 if (!is_null($events['events'])) { 
 
@@ -39,6 +51,16 @@ if (!is_null($events['events'])) {
             $userData = $userProfile->getJSONDecodedBody();
             $userDisplayName = $userData['displayName'];
 
+            // $strSQLcheck = "SELECT * FROM lineuser WHERE userid ='".$userId."'";
+            // $objDB = mysql_query($strSQLcheck) or die ('select error');
+            // if(mysql_num_rows($objDB)<1){
+            // $strSQL = "INSERT INTO lineuser(lid,userid,displayname,function) VALUES('','".$userId."','".$userDisplayName."','y')";
+            // echo $strSQL;
+            // $objQuery = mysql_query($strSQL) or die ('insert error');
+            // if(!objQuery){
+            //     echo "Error";
+            // }        
+//            }
 
             // Sticker
             $packageId = 1;
@@ -60,18 +82,18 @@ if (!is_null($events['events'])) {
 //                   $httpClient = new CurlHTTPClient($channel_token); 
 //                    $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
                     $textMessageBuilder = new TextMessageBuilder($respMessage); 
-//                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 //                    $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId); 
 //                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-//                    if($response->isSucceeded()){
-//                        echo 'Succeed';
-//                        return;
-//                    }
-                    $response = $bot->pushMessage($userId, $textMessageBuilder);
                     if($response->isSucceeded()){
                         echo 'Succeed';
                         return;
                     }
+                    // $response = $bot->pushMessage($userId, $textMessageBuilder);
+                    // if($response->isSucceeded()){
+                    //     echo 'Succeed';
+                    //     return;
+                    // }
 
                     break;
 
@@ -91,25 +113,15 @@ if (!is_null($events['events'])) {
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
                     $textMessageBuilder = new TextMessageBuilder($respMessage);
                     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-        
                     break; 
             }
-            $respMessage='เจ้าค่ะ ^ ^';
-            $httpClient = new CurlHTTPClient($channel_token);
-            $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
-            $textMessageBuilder = new TextMessageBuilder($respMessage);
-            $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 
-//          $strSQL = "INSERT INTO lineuser ";
-//            $strSQL .= "(userid,displayname,status) VALUES ";
-//            $strSQL .= "('".$userId."','".$userDisplayName."','ok')";
-//            $objQuery = mysql_query($strSQL);
-//            if(!$objQuery){
-//                echo "Error save";
-//            }
+        }
+ 
+    }
 
-         } 
-    } 
-} 
+}
+
+
 echo "OK"; 
 ?>
