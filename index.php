@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
                     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 //                    $textMessageBuilder = new StickerMessageBuilder($packageId, $stickerId); 
 //                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-                    if($response->isSucceed()){
+                    if($response->isSucceeded()){
                         echo 'Succeed';
                         return;
                     }
