@@ -5,7 +5,7 @@ use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder; 
 use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 
-$host = "http://43.229.77.78";
+$host = "araiwah.com";
 $username = "araiwah_pmt";
 $password = "canon50d";
 mysql_connect($host, $username, $password);
