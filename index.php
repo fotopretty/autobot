@@ -9,7 +9,7 @@ $host = "localhost";
 $username = "araiwah_pmt";
 $password = "canon50d";
 
-header("HTTP/1.1 200 OK");
+//header("HTTP/1.1 200 OK");
 
 mysql_connect($host, $username, $password) or die("dead");
 mysql_select_db("araiwah_pmt") or die("dead");
