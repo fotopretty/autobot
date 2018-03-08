@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
             $textMsg = $event['message']['text'];
             $userProfile = $bot->getProfile($userId);
             $userData = $userProfile->getJSONDecodedBody();
-            $userDisplayName = $userData('displayName');
+            $userDisplayName = $userData['displayName'];
 
 
             // Sticker
