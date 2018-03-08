@@ -18,6 +18,7 @@ if (!is_null($events['events'])) {
             
             // Get replyToken 
             $replyToken = $event['replyToken'];
+            $userId = $event['source']['userId'];
             $textMsg = $event['message']['text'];
             // Sticker
             $packageId = 1;
@@ -30,7 +31,8 @@ if (!is_null($events['events'])) {
                     // Reply message 
                     foreach ($wording1 as $key => $value){
                         if ($key == $textMsg){
-                            $respMessage = $value; 
+                            $respMessage = $value;
+                            $respMessage += $userId; 
                         } 
                     }
 
