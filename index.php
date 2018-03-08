@@ -32,11 +32,9 @@ if (!is_null($events['events'])) {
                     foreach ($wording1 as $key => $value){
                         if ($key == $textMsg){
                             $respMessage = $value;
-                            $respMessage += $userId; 
+                            $respMessage .= $userId; 
                         } 
                     }
-
-                    print_r($respMessage);
 
                     $httpClient = new CurlHTTPClient($channel_token); 
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret)); 
