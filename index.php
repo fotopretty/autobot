@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
                     foreach ($wording1 as $key => $value){
                         if ($key == $textMsg){
                             $respMessage = $value;
-                            $respMessage .= $userId; 
+//                            $respMessage .= $userId; 
                         } 
                     }
 
